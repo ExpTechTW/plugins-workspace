@@ -2,7 +2,7 @@
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "lib": ["es6", "DOM"],
+    "lib": ["es6", "DOM", "DOM.Iterable"],
     "module": "commonjs",
     "moduleResolution": "node",
     "noEmit": true,
@@ -13,9 +13,11 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "target": "es2019",
-    "paths": {
-      "~/*": ["./*"]
-    }
+    "allowJs": true
   },
   "exclude": ["dist", "node_modules", "test/types"],
+  "include": [
+    "packages/**/*",
+    "plugins/**/*"
+  ]
 }

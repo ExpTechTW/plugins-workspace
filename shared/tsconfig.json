@@ -4,5 +4,8 @@
     "declaration": true,
     "declarationDir": "dist"
   },
-  "include": ["src/**/*", "types/**/*"]
+  "include": [
+    "src/**/*",
+    "types/**/*"
+  ]
 }

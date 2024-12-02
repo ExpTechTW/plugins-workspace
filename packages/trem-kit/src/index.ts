@@ -1,22 +1,22 @@
 type Awaitable<T> = T | Promise<T>;
 
 type ConfigValue = string | number | boolean;
-type ConfigValues = ConfigValue | Array<ConfigValue>;
+type ConfigValues = ConfigValue | ConfigValue[];
 
 interface Config<T extends ConfigValues = ConfigValues> {
   name: string;
   description: string;
   default: T;
-  choices?: T extends Array<ConfigValue> ? T : never;
+  choices?: T extends ConfigValue[] ? T : never;
 }
 
-type ConfigDef = Record<string, Config>; 
+type ConfigDef = Record<string, Config>;
 
 interface AppConfig<T extends ConfigDef> {
   get<K extends keyof T>(key: K):
     (
-      T[K]['default'] extends Array<ConfigValue>
-        ? T[K]['choices'] extends Array<ConfigValue>
+      T[K]['default'] extends ConfigValue[]
+        ? T[K]['choices'] extends ConfigValue[]
           ? T[K]['choices']
           : T[K]['default']
         : T[K]['default']
@@ -32,8 +32,13 @@ interface AppLogger {
   debug(message: string): void;
 }
 
-interface Eew {}
-interface Report {}
+interface Eew {
+  /** TODO: type Eew objects */
+}
+
+interface Report {
+  /** TODO: type Report objects */
+}
 
 interface Events {
   load: [];
@@ -60,6 +65,7 @@ export interface PluginDef<T extends ConfigDef> {
   setup(app: App<T>): Awaitable<void>;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export function definePlugin<T extends ConfigDef = {}>(plugin: PluginDef<T>) {
   return plugin;
 }

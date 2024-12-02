@@ -4,7 +4,7 @@ import terser from '@rollup/plugin-terser';
 
 /**
  * Create a base rollup config
- * @param {Record<string,any>} pkg Imported package.json
+ * @param {Record<string, any>} pkg Imported package.json
  * @param {string[]} external Imported package.json
  * @returns {import('rollup').RollupOptions}
  */
@@ -37,7 +37,7 @@ export function createConfig(pkg) {
       }),
       terser(),
       nodeResolve({
-        modulePaths: ['./shared']
+        modulePaths: ['./shared'],
       }),
     ],
   };
