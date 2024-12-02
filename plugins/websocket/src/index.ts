@@ -1,8 +1,12 @@
 import { definePlugin } from "@exptechtw/trem-kit";
 
 enum Service {
-  report = 'report',
-  eew = 'eew',
+  TremRts = "trem.rts",
+  TremEew = "trem.eew",
+  TremIntensity = "trem.intensity",
+  Eew = "websocket.eew",
+  Report = "websocket.report",
+  Intensity = "cwa.intensity",
 }
 
 export default definePlugin({
@@ -19,11 +23,12 @@ export default definePlugin({
       name: '服務',
       description: 'WebSocket 連線服務列表',
       default: [],
-      choices: [Service.report, Service.eew],
+      choices: [Service.TremEew, Service.TremIntensity, Service.TremRts, Service.Eew, Service.Intensity, Service.Report],
     },
   },
   setup(app) {
-    let ws: WebSocket | null;
+    let ws: WebSocket | null = null;
+    let url: string | null = null;
     
     const destroy = () => {
       if (ws) {
@@ -34,7 +39,8 @@ export default definePlugin({
 
     const connect = () => {
       destroy();
-      ws = new WebSocket('wss://');
+      url = `wss://lb-${Math.ceil(Math.random() * 4)}.exptech.dev`;
+      ws = new WebSocket(url);
     }
 
     app.on('load', connect);
