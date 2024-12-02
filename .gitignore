@@ -6,5 +6,6 @@ output/
 .eslintcache
 .pnpm-debug.log
 .rollup.cache
+package-lock.json
 
 !plugins/*/test/**/node_modules
