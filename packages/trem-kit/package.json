@@ -1,0 +1,22 @@
+{
+  "name": "@exptechtw/trem-kit",
+  "version": "1.0.0",
+  "type": "module",
+  
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "types": "./dist/index.d.ts",
+    "import": "./dist/index.js",
+    "default": "./dist/index.cjs"
+  },
+  "scripts": {
+    "build": "rollup -c --logLevel debug"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ]
+}
