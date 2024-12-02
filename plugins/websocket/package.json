@@ -14,7 +14,7 @@
     "default": "./dist/index.cjs"
   },
   "scripts": {
-    "build": "rollup -c --logLevel debug"
+    "build": "rollup -c"
   },
   "files": [
     "dist",
