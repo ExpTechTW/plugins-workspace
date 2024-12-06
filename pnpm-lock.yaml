@@ -41,6 +41,12 @@ importers:
 
   packages/trem-kit: {}
 
+  plugins/example:
+    dependencies:
+      '@exptechtw/trem-kit':
+        specifier: workspace:*
+        version: link:../../packages/trem-kit
+
   plugins/websocket:
     dependencies:
       '@exptechtw/trem-kit':
