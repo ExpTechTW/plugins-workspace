@@ -13,6 +13,7 @@ export default definePlugin({
   name: 'websocket',
   description: 'WebSocket implementation for TREM-Lite',
   version: '1.0.0',
+  author: [],
   settings: {
     key: {
       name: '金鑰',
