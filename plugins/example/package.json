@@ -1,8 +1,8 @@
 {
-  "name": "@exptechtw/trem-plugin-websocket",
+  "name": "@exptechtw/trem-plugin-example",
   "version": "1.0.0",
-  "description": "WebSocket implementation for TREM-Lite",
-  "author": "whes1015",
+  "description": "Example TREM Lite plugin",
+  "author": "Kamiya",
   "repository": "https://github.com/exptechtw/plugins-workspace",
   "type": "module",
   "main": "./dist/index.cjs",
