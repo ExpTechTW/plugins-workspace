@@ -80,7 +80,6 @@ export type ConfigDef = Record<string, Config>;
  * of the plugin's configuration.
  */
 interface AppConfig<T extends ConfigDef> {
-
   /**
    * Retrieves the value of a specific configuration field by its key.
    *
@@ -92,14 +91,14 @@ interface AppConfig<T extends ConfigDef> {
    * @returns The value of the field, the list of valid choices if defined,
    * or `null` if the key is invalid or not set.
    */
-  get<K extends keyof T>(key: K):
-    (
-      T[K]['default'] extends ConfigValue | ConfigValue[]
-        ? T[K]['choices'] extends ConfigValue[]
-          ? T[K]['choices']
-          : T[K]['default']
+  get<K extends keyof T>(
+    key: K
+  ):
+    | (T[K]['default'] extends ConfigValue | ConfigValue[]
+      ? T[K]['choices'] extends ConfigValue[]
+        ? T[K]['choices']
         : T[K]['default']
-    )
+      : T[K]['default'])
     | null;
 
   /**
@@ -257,7 +256,6 @@ interface PluginDependency {
  * of the plugin's configuration.
  */
 interface App<T extends ConfigDef> {
-
   /**
    * The configuration manager for this plugin.
    *
@@ -283,7 +281,10 @@ interface App<T extends ConfigDef> {
    * @param callback - The function to invoke when the event occurs.
    * @see {@link App.once} for one-time callback.
    */
-  on<K extends keyof Events>(event: K, callback: (...args: Events[K]) => void): void;
+  on<K extends keyof Events>(
+    event: K,
+    callback: (...args: Events[K]) => void
+  ): void;
 
   /**
    * Registers a one-time callback for a specified event.
@@ -295,7 +296,10 @@ interface App<T extends ConfigDef> {
    * @param callback - The function to invoke when the event occurs.
    * @see {@link App.on}
    */
-  once<K extends keyof Events>(event: K, callback: (...args: Events[K]) => void): void;
+  once<K extends keyof Events>(
+    event: K,
+    callback: (...args: Events[K]) => void
+  ): void;
 
   /**
    * Removes event listeners for a specific event.
@@ -307,7 +311,10 @@ interface App<T extends ConfigDef> {
    * @param callback - (Optional) The specific callback to remove. If omitted, all callbacks
    * for the specified event will be removed.
    */
-  off<K extends keyof Events>(event: K, callback?: (...args: Events[K]) => void): void;
+  off<K extends keyof Events>(
+    event: K,
+    callback?: (...args: Events[K]) => void
+  ): void;
 }
 
 /**
@@ -339,6 +346,8 @@ export interface PluginDef<T extends ConfigDef> {
    * (`major.minor.patch`) to ensure compatibility and ease of updates.
    */
   version: string;
+
+  author: string[];
 
   /**
    * (Optional) A list of dependencies required by the plugin.

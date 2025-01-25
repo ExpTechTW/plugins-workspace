@@ -1,1 +1,11 @@
-../../shared/tsconfig.json
+{
+    "extends": "../../tsconfig.base.json",
+    "compilerOptions": {
+        "declaration": true,
+        "declarationDir": "dist"
+    },
+    "include": [
+        "src/**/*",
+        "types/**/*"
+    ]
+}
