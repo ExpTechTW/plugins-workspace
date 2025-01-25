@@ -12,12 +12,10 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
+    "strictNullChecks": true,
     "target": "es2019",
     "allowJs": true
   },
   "exclude": ["dist", "node_modules", "test/types"],
-  "include": [
-    "packages/**/*",
-    "plugins/**/*"
-  ]
+  "include": ["packages/**/*", "plugins/**/*"]
 }
