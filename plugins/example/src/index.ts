@@ -13,7 +13,9 @@ export default definePlugin({
     },
   },
   setup(app) {
-    app.on('load', () => {
+    app.logger.info('example-plugin');
+
+    app.on('DataRts', () => {
       app.logger.info('Hello world from example-plugin');
     });
 

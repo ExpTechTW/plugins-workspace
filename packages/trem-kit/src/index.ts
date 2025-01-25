@@ -203,6 +203,8 @@ interface Events {
    */
   eew: [eew: Eew];
 
+  DataRts: [];
+
   /**
    * Emitted when an earthquake report is issued or updated.
    *
